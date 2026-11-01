@@ -39,6 +39,7 @@ body.dark-mode {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -47,15 +48,18 @@ body {
     font-family: var(--font-body);
     line-height: 1.7;
     transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
+    width: 100%;
 }
 
-.navbar {
+#main-header {
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -63,34 +67,41 @@ body {
     border-bottom: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
     transition: background-color 0.4s ease;
+    width: 100%;
 }
 
-.nav-container {
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    padding: 16px 20px;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
-.nav-logo {
+.brand-title h1 {
     font-family: var(--font-heading);
     font-size: 1.4rem;
-    font-weight: 700;
     color: var(--accent-terracotta);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    margin-bottom: 2px;
 }
 
-.nav-links {
+.brand-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+#nav-menu {
     display: flex;
     list-style: none;
-    gap: 24px;
+    gap: 16px;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
 }
 
-.nav-links a {
+#nav-menu a {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 600;
@@ -98,11 +109,11 @@ body {
     transition: var(--transition);
 }
 
-.nav-links a:hover {
+#nav-menu a:hover {
     color: var(--accent-terracotta);
 }
 
-.theme-btn {
+#theme-toggle-btn {
     background: transparent;
     border: 1px solid var(--border-color);
     color: var(--text-main);
@@ -116,13 +127,13 @@ body {
     transition: var(--transition);
 }
 
-.theme-btn:hover {
+#theme-toggle-btn:hover {
     border-color: var(--accent-terracotta);
     color: var(--accent-terracotta);
 }
 
 .hero {
-    padding: 80px 0 60px;
+    padding: 60px 0 40px;
     text-align: center;
     background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-primary) 100%);
     border-bottom: 1px solid var(--border-color);
@@ -134,7 +145,7 @@ body {
     background-color: rgba(200, 90, 50, 0.1);
     color: var(--accent-terracotta);
     border-radius: 50px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -143,14 +154,15 @@ body {
 
 .hero h1 {
     font-family: var(--font-heading);
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 12px;
     color: var(--text-main);
+    word-break: break-word;
 }
 
 .sub-title {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--accent-gold);
     margin-bottom: 20px;
     font-style: italic;
@@ -160,7 +172,7 @@ body {
     max-width: 680px;
     margin: 0 auto 30px;
     color: var(--text-muted);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .cta-button {
@@ -182,16 +194,16 @@ body {
 }
 
 .section-padding {
-    padding: 60px 0;
+    padding: 48px 0;
 }
 
 .section-header {
-    margin-bottom: 36px;
+    margin-bottom: 28px;
 }
 
 .section-header h2 {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--text-main);
     position: relative;
     display: inline-block;
@@ -210,40 +222,40 @@ body {
 
 .grid-2 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
 }
 
 .grid-3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
 }
 
 .card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
-    padding: 32px;
+    padding: 24px;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
 
 .card:hover {
     box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
 }
 
 .card h3 {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
-    margin-bottom: 16px;
+    font-size: 1.3rem;
+    margin-bottom: 14px;
     color: var(--accent-terracotta);
 }
 
 .card p {
     color: var(--text-muted);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .card p:last-child {
@@ -272,20 +284,21 @@ body {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
-    padding: 24px;
+    padding: 20px;
     margin-top: 24px;
     text-align: center;
+    gap: 16px;
 }
 
 .stat-item .stat-number {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--accent-terracotta);
 }
 
 .stat-item .stat-label {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -298,15 +311,15 @@ body {
 
 .fact-list li {
     position: relative;
-    padding-left: 24px;
-    margin-bottom: 12px;
+    padding-left: 20px;
+    margin-bottom: 10px;
     color: var(--text-muted);
 }
 
 .fact-list li::before {
     content: "•";
     position: absolute;
-    left: 4px;
+    left: 2px;
     color: var(--accent-terracotta);
     font-size: 1.4rem;
     line-height: 1;
@@ -325,7 +338,7 @@ body {
 }
 
 .ref-item {
-    padding: 16px 20px;
+    padding: 16px;
     border-left: 3px solid var(--accent-terracotta);
     background-color: var(--bg-primary);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
@@ -337,7 +350,7 @@ body {
 }
 
 .ref-details {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     margin-top: 4px;
 }
@@ -359,37 +372,47 @@ body {
 }
 
 footer {
-    padding: 30px 0;
+    padding: 24px 0;
     text-align: center;
     border-top: 1px solid var(--border-color);
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 @media (max-width: 768px) {
-    .nav-container {
+    .header-content {
         flex-direction: column;
-        height: auto;
-        padding: 16px 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    #nav-menu {
+        justify-content: center;
         gap: 12px;
     }
 
-    .nav-links {
-        gap: 16px;
-        flex-wrap: wrap;
-        justify-content: center;
+    .hero {
+        padding: 40px 0 30px;
     }
 
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
 
     .sub-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
     }
 
     .stats-box {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
+    }
+
+    .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
     }
 }
