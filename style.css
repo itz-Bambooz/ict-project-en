@@ -1,0 +1,417 @@
+/* =========================================================
+   SIRS EL-LAYYAN HISTORICAL & EDUCATIONAL PORTAL
+   Custom Stylesheet (Modular Architecture)
+   ========================================================= */
+
+/* --- 1. Root Variables & Theme Tokens --- */
+:root {
+    --bg-primary: #fdfbf7;
+    --bg-surface: #ffffff;
+    --bg-card: #ffffff;
+    --text-main: #2c221e;
+    --text-muted: #665750;
+    --accent-terracotta: #c85a32;
+    --accent-gold: #d4a359;
+    --accent-hover: #a44322;
+    --border-color: #e6ded6;
+    --shadow-sm: 0 4px 12px rgba(44, 34, 30, 0.05);
+    --shadow-md: 0 8px 24px rgba(44, 34, 30, 0.08);
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+    --font-heading: 'Georgia', serif;
+    --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --transition: all 0.3s ease;
+}
+
+/* --- Dark Theme Tokens --- */
+body.dark-mode {
+    --bg-primary: #181513;
+    --bg-surface: #221d1a;
+    --bg-card: #2a2420;
+    --text-main: #f3ede7;
+    --text-muted: #b5a89e;
+    --accent-terracotta: #e07a5f;
+    --accent-gold: #e5b869;
+    --accent-hover: #f28f74;
+    --border-color: #3d342e;
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* --- 2. Base Reset & Layout --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- 3. Navigation Bar --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.4s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent-terracotta);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent-terracotta);
+}
+
+/* Theme Toggle Button */
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+}
+
+.theme-btn:hover {
+    border-color: var(--accent-terracotta);
+    color: var(--accent-terracotta);
+}
+
+/* --- 4. Hero Section --- */
+.hero {
+    padding: 80px 0 60px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-primary) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 14px;
+    background-color: rgba(200, 90, 50, 0.1);
+    color: var(--accent-terracotta);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+.sub-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.hero-description {
+    max-width: 680px;
+    margin: 0 auto 30px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-terracotta);
+    color: #ffffff !important;
+    padding: 12px 28px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.cta-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* --- 5. Content Sections --- */
+.section-padding {
+    padding: 60px 0;
+}
+
+.section-header {
+    margin-bottom: 36px;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--text-main);
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--accent-terracotta);
+    border-radius: 2px;
+}
+
+/* Multi-column Layouts */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* Standard Content Card */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    color: var(--accent-terracotta);
+}
+
+.card p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Feature Card Highlight (ASFEC Focus) */
+.feature-card {
+    border-left: 4px solid var(--accent-gold);
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-surface) 100%);
+}
+
+.feature-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Stats Box Component */
+.stats-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-top: 24px;
+    text-align: center;
+}
+
+.stat-item .stat-number {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-terracotta);
+}
+
+.stat-item .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Key Facts List */
+.fact-list {
+    list-style: none;
+    margin-top: 12px;
+}
+
+.fact-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 12px;
+    color: var(--text-muted);
+}
+
+.fact-list li::before {
+    content: "•";
+    position: absolute;
+    left: 4px;
+    color: var(--accent-terracotta);
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+/* --- 6. References Section --- */
+.references-section {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.reference-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ref-item {
+    padding: 16px 20px;
+    border-left: 3px solid var(--accent-terracotta);
+    background-color: var(--bg-primary);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.ref-title {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.ref-details {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.ref-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: var(--accent-terracotta);
+    text-decoration: none;
+    font-weight: 600;
+
+    /* Styling for clear external links */
+    word-break: break-all;
+    transition: var(--transition);
+}
+
+.ref-link:hover {
+    text-decoration: underline;
+    color: var(--accent-hover);
+}
+
+/* --- 7. Footer --- */
+footer {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- 8. Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        height: auto;
+        padding: 16px 0;
+        gap: 12px;
+    }
+
+    .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .sub-title {
+        font-size: 1.2rem;
+    }
+
+    .stats-box {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
